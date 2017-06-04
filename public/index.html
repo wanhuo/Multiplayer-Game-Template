@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <!-- Includes -->
+    <script src='/socket.io/socket.io.js'></script>                       <!-- Sockets -->
+    <script src='https://code.jquery.com/jquery-latest.js'></script>      <!-- JQuery -->
+
+    <script>
+      var socket = io();
+    </script>
+
+    <!-- Server-Client -->
+    <script src='/static/timer.js'></script>
+    <script src='/static/player.js'></script>
+    <script src='/static/trans_socket.js'></script>
+    <!-- Only Client -->
+    <script src='/public/client_js/canvas.js'></script>      
+  </head>
+  <body>
+    <canvas id='GameCanvas' width='500' height='400'></canvas>
+  </body>
+</html>
+
+<script>
+  var Canvas_Context = new CanvasInfo('GameCanvas');
+  Canvas_Context.get_new_size();    // Set Size of Canvas
+</script>
+
+<script src='/public/client_js/game.js'></script>   
