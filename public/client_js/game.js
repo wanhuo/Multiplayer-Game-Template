@@ -1,5 +1,6 @@
 //------------------------------------------------------------------------
 // Socket-Manager
+// Set the ID of the Client
 socket.on('setID', function(data) {
     id = data;
 });
@@ -44,6 +45,7 @@ socket.on('updateGame', function(data) {
 */
 //------------------------------------------------------------------------
 
+// Client ID
 var id = null;
 
 // All Player
