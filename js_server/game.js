@@ -49,7 +49,7 @@ Game.send = function() {
             // Send to Client
             Send_Socket(SOCKET_LIST[i], 'updateGame', { Player_list: Game.getAllPlayerData(), time: PLAYER_LIST[i].lastUpdateTime, sendtime: Date.now()});
         } catch(e) {
-
+            // Exception
         }
     }
 } // send
@@ -58,6 +58,7 @@ Game.send = function() {
 Game.getAllPlayerData = function() {
     var pack = [];
     for(var i in PLAYER_LIST)
+        // Add to Package-List
         pack.push({id: PLAYER_LIST[i].id, x: PLAYER_LIST[i].x, y: PLAYER_LIST[i].y});
     return (pack);
 } // getAllPlayerData
@@ -66,7 +67,6 @@ Game.getAllPlayerData = function() {
 
 //============================================================================================
 // MAIN-LOOP
-var elapsedServer_t = Date.now();
 setInterval(function() {
     // Update Timer
     Game.timer_c.update();
@@ -74,8 +74,5 @@ setInterval(function() {
     Game.update();
     // Send to Clients
     Game.send();
-
-    //console.log(Date.now() - elapsedServer_t);
-    elapsedServer_t = Date.now();
 }, UPDATE_SPEED);
 //============================================================================================
