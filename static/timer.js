@@ -1,3 +1,4 @@
+// Timer-Class
 NewTimer = function() {
     // Private Data
     var self = {
