@@ -28,7 +28,7 @@ Game.addPlayer = function(id) {
 } // addPlayer
 // Remove Player
 Game.removePlayer = function(id) {
-    delete PLAYER_LIST[id];         // --> Delete Player
+    delete PLAYER_LIST[id];                     // --> Delete Player
     // Remove Player from all Clients
     for(var i in SOCKET_LIST)
         // Send to Client
