@@ -23,6 +23,12 @@ NewPlayer = function(id) {
         self.calculateSpeed();
     } // update
 
+     // Calculate Speed
+    self.calculateSpeed = function() {
+        //self.speed = Math.floor(200 * self.timer_c.getElapsed());
+        self.speed = 2;
+    } // calculateSpeed
+
     // Process Events/Inputs
     self.processEvent = function(event) {
         // A --> Walking left
@@ -45,11 +51,6 @@ NewPlayer = function(id) {
         self.xSpeed = 0;
         self.ySpeed = 0;
     } // processEvent
-
-    // Calculate Speed
-    self.calculateSpeed = function() {
-        self.speed = (200 * self.timer_c.getElapsed());
-    } // calculateSpeed
 
     return (self);
 }
