@@ -6,10 +6,12 @@ require('../static/trans_socket');  // SocketManager
 
 // List of all Player
 PLAYER_LIST= {};
-
 // How fast should the main-loop be?
 UPDATE_SPEED = 20;
 
+
+//------------------------------------------------------------------------
+// GAME
 // Game-Object
 Game = {
     timer_c : new NewTimer(),       // Timer
@@ -56,7 +58,7 @@ Game.getAllPlayerData = function() {
         pack.push({id: PLAYER_LIST[i].id, x: PLAYER_LIST[i].x, y: PLAYER_LIST[i].y});
     return (pack);
 } // getAllPlayerData
-
+//------------------------------------------------------------------------
 
 
 //============================================================================================
