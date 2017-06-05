@@ -42,7 +42,7 @@ io.sockets.on('connection', function(socket) {
     socket.id = UUID();                     // Create an ID for the socket
     SOCKET_LIST[socket.id] = socket;        // --> Add
     Game.addPlayer(socket.id);
-    Send_Socket(socket, 'setID', socket.id);// Set ID of Client
+    Send_Socket(socket, 'setup', {id: socket.id, startTime: Game.timer_c.getStartTime()});// Client Setup
     //---------------------------------------------------------------------------
     
     
@@ -58,7 +58,7 @@ io.sockets.on('connection', function(socket) {
     //---------------------------------------------------------------------------
     // ProcessEvents/Inputs
     socket.on('processEvent', function(data) {
-        PLAYER_LIST[socket.id].InputEvent = data;
+        PLAYER_LIST[socket.id].processEvent(data.input);
         PLAYER_LIST[socket.id].lastUpdateTime = data.time;
     });
     //---------------------------------------------------------------------------
