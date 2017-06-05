@@ -23,6 +23,7 @@ Game.addPlayer = function(id) {
     PLAYER_LIST[id] = Player;                   // --> Add Player
     // Send new Player to Clients
     for(var i in SOCKET_LIST)
+        // Send to Client
         Send_Socket(SOCKET_LIST[i], 'addPlayer', PLAYER_LIST);
 } // addPlayer
 // Remove Player
@@ -30,6 +31,7 @@ Game.removePlayer = function(id) {
     delete PLAYER_LIST[id];         // --> Delete Player
     // Remove Player from all Clients
     for(var i in SOCKET_LIST)
+        // Send to Client
         Send_Socket(SOCKET_LIST[i], 'removePlayer', id);
 } // removePlayer
 
@@ -44,6 +46,7 @@ Game.update = function() {
 Game.send = function() {
     for(var i in SOCKET_LIST) {
         try {
+            // Send to Client
             Send_Socket(SOCKET_LIST[i], 'updateGame', { Player_list: Game.getAllPlayerData(), time: PLAYER_LIST[i].lastUpdateTime, sendtime: Date.now()});
         } catch(e) {
 
