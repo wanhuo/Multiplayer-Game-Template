@@ -1,3 +1,4 @@
+// Player-Class
 NewPlayer = function(id) {
     // Private Data
     var self = {
